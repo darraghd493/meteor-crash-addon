@@ -42,7 +42,8 @@ public class MovementCrash extends Module {
 
     @EventHandler
     private void onTick(TickEvent.Post event) {
-        if (mc.getNetworkHandler() == null) return;
+        if (mc.getNetworkHandler() == null || mc.player == null) return;
+
         try {
             Vec3d current_pos = mc.player.getPos();
             for (int i = 0; i < packets.get(); i++) {

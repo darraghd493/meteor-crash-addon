@@ -42,6 +42,8 @@ public class SequenceCrash extends Module {
 
     @EventHandler
     private void onTick(TickEvent.Post event) {
+        if (mc.getNetworkHandler() == null || mc.player == null) return;
+
         switch (mode.get()) {
             case Item -> {
                 for (int i = 0; i < amount.get(); i++) {

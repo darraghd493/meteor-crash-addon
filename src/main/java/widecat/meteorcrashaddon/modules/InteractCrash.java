@@ -41,11 +41,13 @@ public class InteractCrash extends Module {
 
     @EventHandler
     private void onTick(TickEvent.Post event) {
+        if (mc.getNetworkHandler() == null) return;
+
         switch (mode.get()) {
             case NoCom -> {
                 for (int i = 0; i < amount.get(); i++) {
-                Vec3d cpos = pickRandomPos();
-                mc.getNetworkHandler().sendPacket(new PlayerInteractBlockC2SPacket(Hand.MAIN_HAND, new BlockHitResult(cpos, Direction.DOWN, BlockPos.ofFloored(cpos), false), 0));
+                    Vec3d cpos = pickRandomPos();
+                    mc.getNetworkHandler().sendPacket(new PlayerInteractBlockC2SPacket(Hand.MAIN_HAND, new BlockHitResult(cpos, Direction.DOWN, BlockPos.ofFloored(cpos), false), 0));
                 }
             }
             case OOB -> {

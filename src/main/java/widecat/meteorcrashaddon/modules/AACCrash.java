@@ -43,6 +43,8 @@ public class AACCrash extends Module {
 
     @Override
     public void onActivate() {
+        if (mc.getNetworkHandler() == null || mc.player == null) return;
+
         if (Utils.canUpdate() && !onTick.get()) {
             switch (crashMode.get()) {
                 case NEW -> {
@@ -63,6 +65,8 @@ public class AACCrash extends Module {
 
     @EventHandler
     public void onTick(TickEvent.Pre tickEvent) {
+        if (mc.getNetworkHandler() == null || mc.player == null) return;
+
         if (onTick.get()) {
             switch (crashMode.get()) {
                 case NEW -> {

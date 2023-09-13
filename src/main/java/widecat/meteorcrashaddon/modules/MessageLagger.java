@@ -101,7 +101,7 @@ public class MessageLagger extends Module {
 
     private void sendLagMessage() {
         String message = generateLagMessage();
-         ChatUtils.sendPlayerMsg(message);
+        ChatUtils.sendPlayerMsg(message);
     }
 
     private void sendLagWhisper() {
@@ -109,14 +109,14 @@ public class MessageLagger extends Module {
         PlayerEntity player = players.get(new Random().nextInt(players.size()));
         String message = generateLagMessage();
 
-         ChatUtils.sendPlayerMsg("/msg " + player.getGameProfile().getName() + " " + message);
+        ChatUtils.sendPlayerMsg("/msg " + player.getGameProfile().getName() + " " + message);
     }
 
     private String generateLagMessage() {
-        String message = null;
+        StringBuilder message = new StringBuilder();
         for (int i = 0; i < messageLength.get(); i++) {
-            message += (char) (Math.floor(Math.random() * 0x1D300) + 0x800);
+            message.append((char) (Math.floor(Math.random() * 0x1D300) + 0x800));
         }
-        return message;
+        return message.toString();
     }
 }

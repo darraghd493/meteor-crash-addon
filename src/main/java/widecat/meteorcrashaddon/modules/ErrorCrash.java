@@ -36,6 +36,8 @@ public class ErrorCrash extends Module {
 
     @EventHandler
     private void onTick(TickEvent.Post event) {
+        if (mc.getNetworkHandler() == null || mc.player == null) return;
+
         Int2ObjectMap<ItemStack> REAL = new Int2ObjectArrayMap<>();
         REAL.put(0, new ItemStack(Items.RED_DYE, 1));
         for (int i = 0; i < amount.get(); i++) {

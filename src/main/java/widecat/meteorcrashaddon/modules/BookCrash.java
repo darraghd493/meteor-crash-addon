@@ -55,6 +55,8 @@ public class BookCrash extends Module {
     }
 
     private void sendBadBook() {
+        if (mc.getNetworkHandler() == null || mc.player == null) return;
+
         String title = "/stop" + Math.random() * 400;
         String mm255 = RandomStringUtils.randomAlphanumeric(255);
 

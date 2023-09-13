@@ -36,6 +36,8 @@ public class PacketSpammer extends Module {
 
     @EventHandler
     private void onTick(TickEvent.Post event) {
+        if (mc.getNetworkHandler() == null) return;
+
         for (int i = 0; i < amount.get(); i++) {
             mc.getNetworkHandler().sendPacket(new PlayerMoveC2SPacket.OnGroundOnly(Math.random() >= 0.5));
             mc.getNetworkHandler().sendPacket(new HandSwingC2SPacket(Hand.MAIN_HAND));

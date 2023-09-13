@@ -48,6 +48,8 @@ public class ContainerCrash extends Module {
 
     @EventHandler
     private void onTick(TickEvent.Pre event) {
+        if (mc.getNetworkHandler() == null || mc.player == null) return;
+
         if (GLFW.glfwGetKey(mc.getWindow().getHandle(), GLFW.GLFW_KEY_ESCAPE) == GLFW.GLFW_PRESS) {
             toggle();
             mc.player.closeHandledScreen();

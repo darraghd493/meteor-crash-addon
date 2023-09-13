@@ -17,7 +17,7 @@ public class LecternCrash extends Module {
 
     @EventHandler
     private void onOpenScreenEvent(OpenScreenEvent event) {
-        if (!(event.screen instanceof LecternScreen)) return;
+        if (!(event.screen instanceof LecternScreen) || mc.getNetworkHandler() == null || mc.player == null) return;
         mc.getNetworkHandler().sendPacket(new ClickSlotC2SPacket(mc.player.currentScreenHandler.syncId, mc.player.currentScreenHandler.getRevision(), 0, 0, SlotActionType.QUICK_MOVE, mc.player.currentScreenHandler.getCursorStack().copy(), Int2ObjectMaps.emptyMap()));
         toggle();
     }

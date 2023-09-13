@@ -39,6 +39,8 @@ public class CreativeCrash extends Module {
 
     @EventHandler
     private void onTick(TickEvent.Post event) {
+        if (mc.getNetworkHandler() == null || mc.player == null) return;
+
         if (!mc.player.getAbilities().creativeMode) {
             error("its literally called creative crash why are you trying this in survival");
             toggle();

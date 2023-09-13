@@ -57,6 +57,8 @@ public class EntityCrash extends Module {
 
     @EventHandler
     public void onTick(TickEvent.Post event) {
+        if (mc.getNetworkHandler() == null || mc.player == null) return;
+
         Entity vehicle = mc.player.getVehicle();
         if (vehicle == null) {
             error("You must be riding an entity, toggling");

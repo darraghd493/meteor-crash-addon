@@ -31,7 +31,8 @@ public class CraftingCrash extends Module {
 
     @EventHandler
     private void onTick(TickEvent.Post event) {
-        if (!(mc.player.currentScreenHandler instanceof CraftingScreenHandler) || mc.getNetworkHandler() == null) return;
+        if (mc.getNetworkHandler() == null || mc.player == null || !(mc.player.currentScreenHandler instanceof CraftingScreenHandler)) return;
+
         try {
                 List<RecipeResultCollection> recipeResultCollectionList = mc.player.getRecipeBook().getOrderedResults();
                 for (RecipeResultCollection recipeResultCollection : recipeResultCollectionList) {
