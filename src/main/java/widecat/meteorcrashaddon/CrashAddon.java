@@ -13,8 +13,6 @@ import org.slf4j.LoggerFactory;
 import widecat.meteorcrashaddon.commands.CrashItemCommand;
 import widecat.meteorcrashaddon.modules.*;
 
-import java.lang.invoke.MethodHandles;
-
 public class CrashAddon extends MeteorAddon {
     public static final Logger LOG = LoggerFactory.getLogger("CrashAddon");
     public static final Category CATEGORY = new Category("Crash", Items.TNT.getDefaultStack());
